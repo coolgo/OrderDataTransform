@@ -149,14 +149,14 @@ public class OrderDataTransform {
 					buffers.writeBytes(buf);
 				}
 			} else {
-
 				Object obj = encodeMap.get(orderItem.key);
-
 				switch (orderItem.size) {
 				case 1:
 					int value1 = 0;
 					if (obj instanceof Double) {
 						value1 = ((Double) obj).intValue();
+					} else {
+						value1 = ((Integer) obj).intValue();
 					}
 					buffers.writeByte(value1);
 					break;
@@ -164,6 +164,8 @@ public class OrderDataTransform {
 					int value2 = 0;
 					if (obj instanceof Double) {
 						value2 = ((Double) obj).intValue();
+					} else {
+						value2 = ((Integer) obj).intValue();
 					}
 					buffers.writeShort(value2);
 					break;
@@ -171,6 +173,8 @@ public class OrderDataTransform {
 					int value3 = 0;
 					if (obj instanceof Double) {
 						value3 = ((Double) obj).intValue();
+					} else {
+						value3 = ((Integer) obj).intValue();
 					}
 					buffers.writeInt(value3);
 					break;
